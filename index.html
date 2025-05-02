@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="manifest" href="manifest.json" />
+  <link rel="stylesheet" href="style.css" />
+  <title>PowerGestor PWA</title>
+</head>
+<body>
+  <div class="tabs">
+    <button class="tab-btn active" data-tab="aba1">PowerGestor</button>
+    <button class="tab-btn" data-tab="aba2">Analytics</button>
+    <button class="tab-btn" data-tab="aba3">PDV</button>
+  </div>
+
+  <div class="tab-content active" id="aba1">
+    <iframe src="https://app.powergestor.com/" frameborder="0"></iframe>
+  </div>
+  <div class="tab-content" id="aba2">
+    <iframe src="https://app.powergestor.com/analytics/" frameborder="0"></iframe>
+  </div>
+  <div class="tab-content" id="aba3">
+    <iframe src="https://app.powergestor.com/pdv/" frameborder="0"></iframe>
+  </div>
+
+  <script>
+    document.querySelectorAll(".tab-btn").forEach(btn => {
+      btn.addEventListener("click", () => {
+        const target = btn.dataset.tab;
+        document.querySelectorAll(".tab-btn").forEach(b => b.classList.remove("active"));
+        document.querySelectorAll(".tab-content").forEach(c => c.classList.remove("active"));
+
+        btn.classList.add("active");
+        document.getElementById(target).classList.add("active");
+      });
+    });
+
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('sw.js');
+    }
+  </script>
+</body>
+</html>
