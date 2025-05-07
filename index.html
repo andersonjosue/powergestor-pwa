@@ -11,15 +11,15 @@
   <div class="tabs">
     <div class="tab-header">
       <button class="tab-btn active" data-tab="aba1">PowerGestor</button>
-      <button class="reload-btn" data-target="aba1">🔄</button>
+      <button class="reload-btn" data-target="aba1">↻</button>
     </div>
     <div class="tab-header">
       <button class="tab-btn" data-tab="aba2">Analytics</button>
-      <button class="reload-btn" data-target="aba2">🔄</button>
+      <button class="reload-btn" data-target="aba2">↻</button>
     </div>
     <div class="tab-header">
       <button class="tab-btn" data-tab="aba3">PDV</button>
-      <button class="reload-btn" data-target="aba3">🔄</button>
+      <button class="reload-btn" data-target="aba3">↻</button>
     </div>
   </div>
 
@@ -55,7 +55,7 @@
         const iframe = document.querySelector(`#${tabId} iframe`);
         if (iframe) {
           const src = iframe.src;
-          iframe.src = ""; // força o reload limpando e colocando de volta
+          iframe.src = "";
           setTimeout(() => {
             iframe.src = src;
           }, 50);
@@ -63,6 +63,5 @@
       });
     });
   </script>
-  
 </body>
 </html>
