@@ -2,21 +2,23 @@ body {
   margin: 0;
   font-family: sans-serif;
 }
+
 .tab-header {
   display: flex;
   align-items: center;
-  width: 200px;
+  width: 100%; /* Ajustei para preencher toda a largura */
   justify-content: space-between;
-  background: #f0f0f0;
+  background: #808080; /* Cor cinza */
+  height: 30px; /* Definindo uma altura menor */
   border-radius: 8px;
   overflow: hidden;
 }
 
 .tab-btn {
   flex: 1;
-  padding: 10px;
+  padding: 5px; /* Reduzi o padding para a barra ficar menor */
   border: none;
-  background: #ddd;
+  background: #ccc; /* Cor de fundo mais clara */
   font-weight: bold;
   cursor: pointer;
 }
@@ -24,25 +26,30 @@ body {
 .tab-btn.active {
   background: #bbb;
 }
+
 .reload-btn {
-  background: #ddd;
+  background: #ccc;
   border: none;
   padding: 0 10px;
   font-size: 1.2em;
   cursor: pointer;
 }
+
 .tab-content {
   display: none;
-  height: calc(100vh - 40px);
+  height: calc(100vh - 30px); /* Ajustando a altura do conteúdo para não sobrepor a barra */
 }
+
 .tab-content.active {
   display: block;
 }
+
 iframe {
   width: 100%;
   height: 100%;
   border: none;
 }
+
 .tabs {
   display: flex;
   justify-content: center;
