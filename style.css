@@ -29,3 +29,14 @@ iframe {
   height: 100%;
   border: none;
 }
+.tab-header {
+  display: inline-flex;
+  align-items: center;
+  margin-right: 8px;
+}
+.reload-btn {
+  background: none;
+  border: none;
+  font-size: 1.2em;
+  cursor: pointer;
+}
