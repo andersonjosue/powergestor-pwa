@@ -12,7 +12,7 @@ self.addEventListener('install', event => {
   event.waitUntil(
     caches.open(CACHE_NAME)
       .then(cache => cache.addAll(urlsToCache))
-});
+)});
 
 self.addEventListener('fetch', event => {
   if (event.request.url.includes('powergestor.com')) {
@@ -37,3 +37,4 @@ self.addEventListener('activate', event => {
     })
   );
 });
+
