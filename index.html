@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -8,146 +9,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   <link rel="manifest" href="manifest.json">
   <link rel="apple-touch-icon" href="icons/icon-192x192.png">
+  <link rel="stylesheet" href="style.css">
   <title>PowerGestor PWA</title>
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      font-family: 'Arial', sans-serif;
-      background-color: #f5f5f5;
-      overflow: hidden;
-      height: 100vh;
-    }
-
-    .tabs {
-      display: flex;
-      width: 100%;
-      padding: 0;
-      margin: 0;
-      background-color: #e0e0e0;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-      color: #333;
-      font-weight: bold;
-      height: 36px;
-    }
-
-    .tab-header {
-      display: flex;
-      width: 100%;
-      padding: 0;
-      margin: 0;
-      justify-content: space-around;
-    }
-
-    .tab-btn {
-      flex: 1;
-      padding: 10px 0;
-      margin: 0;
-      border: none;
-      background: transparent;
-      font-weight: bold;
-      cursor: pointer;
-      font-size: 12px;
-      color: #333;
-      text-align: center;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-      position: relative;
-      border-right: 1px solid rgba(0,0,0,0.1);
-      transition: all 0.2s ease;
-    }
-
-    .tab-btn:last-child {
-      border-right: none;
-    }
-
-    .tab-btn.active {
-      background-color: #000000;
-      color: white;
-      border-bottom: 3px solid #ffd700;
-    }
-
-    .tab-btn:hover {
-      background-color: #f0f0f0;
-    }
-
-    .tab-btn.active:hover {
-      background-color: #222222;
-    }
-
-    .reload-btn {
-      background: transparent;
-      border: none;
-      padding: 0 10px;
-      cursor: pointer;
-      font-size: 14px;
-      color: #333;
-      transition: transform 0.3s ease;
-    }
-
-    .reload-btn:active {
-      transform: rotate(360deg);
-    }
-
-    .tab-content {
-      display: none;
-      position: fixed;
-      top: 36px;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      margin: 0;
-      padding: 0;
-      background-color: white;
-      overflow: hidden;
-    }
-
-    .tab-content.active {
-      display: block;
-    }
-
-    iframe {
-      width: 100%;
-      height: 100%;
-      border: none;
-      margin: 0;
-      padding: 0;
-      display: block;
-    }
-
-    .loader {
-      display: none;
-      position: fixed;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      border: 4px solid #f3f3f3;
-      border-top: 4px solid #000000;
-      border-radius: 50%;
-      width: 40px;
-      height: 40px;
-      animation: spin 1s linear infinite;
-      z-index: 1000;
-    }
-
-    @keyframes spin {
-      0% { transform: translate(-50%, -50%) rotate(0deg); }
-      100% { transform: translate(-50%, -50%) rotate(360deg); }
-    }
-
-    @media (max-width: 600px) {
-      .tab-btn {
-        font-size: 10px;
-        padding: 8px 0;
-      }
-      .tabs {
-        height: 32px;
-      }
-      .tab-content {
-        top: 32px;
-      }
-    }
-  </style>
 </head>
 <body>
   <div class="tabs">
@@ -165,7 +28,7 @@
     </div>
   </div>
 
-   <div class="tab-content active" id="aba1">
+  <div class="tab-content active" id="aba1">
     <iframe src="https://app.powergestor.com/"></iframe>
   </div>
   <div class="tab-content" id="aba2">
@@ -178,7 +41,6 @@
   <div class="loader" id="loader"></div>
 
   <script>
-    // Controle de abas
     document.querySelectorAll(".tab-btn").forEach(btn => {
       btn.addEventListener("click", () => {
         const target = btn.dataset.tab;
@@ -190,18 +52,17 @@
       });
     });
 
-    // Recarregar iframes com feedback visual
     document.querySelectorAll(".reload-btn").forEach(btn => {
       btn.addEventListener("click", () => {
         const tabId = btn.dataset.target;
         const iframe = document.querySelector(`#${tabId} iframe`);
         const loader = document.getElementById('loader');
-        
+
         if (iframe) {
           loader.style.display = 'block';
           const src = iframe.src;
           iframe.src = "";
-          
+
           setTimeout(() => {
             iframe.src = src;
           }, 100);
@@ -209,7 +70,6 @@
       });
     });
 
-    // Service Worker
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
         navigator.serviceWorker.register('sw.js').then(reg => {
@@ -218,14 +78,12 @@
       });
     }
 
-    // Esconder loader quando iframes carregarem
     document.querySelectorAll('iframe').forEach(iframe => {
       iframe.addEventListener('load', () => {
         document.getElementById('loader').style.display = 'none';
       });
     });
 
-    // Ajuste de layout para prevenir rolagem
     function adjustLayout() {
       const tabHeight = document.querySelector('.tabs').offsetHeight;
       document.querySelectorAll('.tab-content').forEach(content => {
