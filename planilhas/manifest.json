@@ -1,7 +1,7 @@
 {
   "name": "Planilhas PWA",
   "short_name": "Planilhas",
-  "start_url": "/",
+  "start_url": "/planilhas",
   "display": "standalone",
   "background_color": "#000000",
   "theme_color": "#000000",
