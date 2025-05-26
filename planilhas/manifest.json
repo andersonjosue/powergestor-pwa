@@ -1,6 +1,6 @@
 {
   "name": "Planilhas PWA",
-  "short_name": "Planilhas",
+  "short_name": "Planilhas PWA",
   "start_url": "/planilhas/index.html",
   "scope": "/planilhas/",
   "display": "standalone",
