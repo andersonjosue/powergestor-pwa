@@ -2,7 +2,7 @@
   "name": "Planilhas PWA",
   "short_name": "Planilhas",
   "start_url": "/planilhas/index.html",
-  "scope": "/planilhas",
+  "scope": "/planilhas/",
   "display": "standalone",
   "background_color": "#000000",
   "theme_color": "#000000",

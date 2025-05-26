@@ -1,9 +1,9 @@
 const CACHE_NAME = 'planilhas-v2';
 const urlsToCache = [
-  '/',
-  '/index.html',
-  '/style.css',
-  '/manifest.json',
+  '/planilhas/',
+  '/planilhas//index.html',
+  '/planilhas//style.css',
+  '/planilhas/manifest.json',
   '../icons/icon-192x192.png',
   '..//icons/icon-512x512.png'
 ];
