@@ -1,6 +1,6 @@
 {
   "name": "PowerGestor PWA",
-  "short_name": "PowerGestor",
+  "short_name": "PowerGestor PWA",
   "start_url": "/powergestor/index.html",
   "scope": "/powergestor",
   "display": "standalone",
