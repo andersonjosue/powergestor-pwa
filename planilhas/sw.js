@@ -1,4 +1,4 @@
-const CACHE_NAME = 'powergestor-v2';
+const CACHE_NAME = 'planilhas-v2';
 const urlsToCache = [
   '/',
   '/index.html',
