@@ -2,7 +2,12 @@
   "redirects": [
     {
       "source": "/",
-      "destination": "/powergestor",
+      "destination": "/powergestor/index.html",
+      "permanent": false
+    },
+    {
+      "source": "/powergestor",
+      "destination": "/powergestor/",
       "permanent": false
     }
   ]
