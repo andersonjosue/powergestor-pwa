@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import '../App.css'; // This will be your style.css, renamed or linked.
 
-function planilhas() {
+function Planilhas() {
   const [activeTab, setActiveTab] = useState('aba1');
   const [loading, setLoading] = useState(false);
 
@@ -153,4 +153,4 @@ function planilhas() {
   );
 }
 
-export default planilhas;
+export default Planilhas;
