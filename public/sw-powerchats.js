@@ -1,12 +1,11 @@
-const CACHE_NAME = 'powergestor-v2';
-// const urlsToCache = [
-//   '/',
-//   '/index.html', // This will be handled by Vite's build output
-//   '/style.css', // This will be handled by Vite's build output
-//   '/manifest.json',
-//   '/icons/pg-192x192.png', // Corrected from original index.html path
-//   '/icons/pg-512x512.png'  // Corrected from original index.html path
-// ];
+const CACHE_NAME = 'powerchats-v2';
+const urlsToCache = [
+  '/powerchats/',
+  '/powerchats/index.html',
+  '/manifest-powerchats.json',
+  '/icons/pg-192x192.png',
+  '/icons/pg-512x512.png'
+];
 
 self.addEventListener('install', event => {
   event.waitUntil(
@@ -19,13 +18,13 @@ self.addEventListener('fetch', event => {
     caches.match(event.request)
       .then(response => response || fetch(event.request))
       .catch(() => {
-        // fallback opcional (pode ser um arquivo offline.html)
+        // fallback opcional: pode retornar uma página offline
       })
   );
 });
 
 self.addEventListener('activate', event => {
-  event(
+  event.waitUntil(
     caches.keys().then(cacheNames =>
       Promise.all(
         cacheNames.map(cache => {
