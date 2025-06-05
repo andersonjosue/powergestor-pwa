@@ -1,7 +1,7 @@
 {
   "rewrites": [
-    { "source": "/powergestor(.*)", "destination": "/powergestor" },
-    { "source": "/planilhas(.*)", "destination": "/planilhas" },
-    { "source": "/powerchats(.*)", "destination": "/powerchats" }
+    { "source": "/powergestor(.*)", "destination": "/index.html" },
+    { "source": "/planilhas(.*)", "destination": "/index.html" },
+    { "source": "/powerchats(.*)", "destination": "/index.html" }
   ]
 }
