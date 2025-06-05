@@ -2,7 +2,8 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/powergestor";
 import NotFound from "./pages/NotFound";
-import Planilhas from "./pages/planilhas";
+import Planilhas from "./pages/Planilhas";
+//import planilhas from "./pages/planilhas";
 
 function App() {
   return (

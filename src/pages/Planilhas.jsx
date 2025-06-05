@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import '../App.css'; // This will be your style.css, renamed or linked.
 //import { BrowserRouter as Router, Route, Routes, Navigate } from "react-router-dom"
 
-function Planilhas() {
+function planilhas() {
   const [activeTab, setActiveTab] = useState('aba1');
   const [loading, setLoading] = useState(false);
 
@@ -155,4 +155,4 @@ function Planilhas() {
   );
 }
 
-export default Planilhas;
+export default planilhas;
