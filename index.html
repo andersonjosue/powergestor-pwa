@@ -6,12 +6,31 @@
     <meta name="theme-color" content="#000000">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <link rel="manifest" href="/manifest.json">
     <link rel="apple-touch-icon" href="/icons/pg-192x192.png">
     <title>PowerGestor PWA</title>
+   <script>
+      const pathname = window.location.pathname;
+      const link = document.createElement("link");
+      link.rel = "manifest";
+
+      if (pathname.startsWith("/powerchats")) {
+        link.href = "/manifest-powerchats.json";
+      } else 
+      if (pathname.startsWith("/powergestor")) {
+        link.href = "/manifest-powergestor.json";
+      } else 
+       if (pathname.startsWith("/planilhas")) {
+        link.href = "/manifest-planilhas.json";
+      } else{        
+        link.href = "/manifest.json";
+      }
+
+      document.head.appendChild(link);
+    </script>
   </head>
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
   </body>
+
 </html>
