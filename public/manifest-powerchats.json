@@ -1,23 +1,20 @@
 {
-  "name": "Powerchats PWA",
-  "short_name": "Powerchats PWA",
-  "start_url": "/powerchats/index.html",
-  "scope": "/powerchats/",
+  "name": "PowerChats",
+  "short_name": "PowerChats",
+  "start_url": "/powerchats",
   "display": "standalone",
-  "background_color": "#000000",
+  "background_color": "#ffffff",
   "theme_color": "#000000",
-  "orientation": "any",
   "icons": [
-   {
-      "src": "../icons/planilha-128x128.png",
-      "sizes": "128x128",
+    {
+      "src": "/icons/icon-192.png",
+      "sizes": "192x192",
       "type": "image/png"
     },
     {
-      "src": "../icons/planilha-512x512.png",
+      "src": "/icons/icon-512.png",
       "sizes": "512x512",
       "type": "image/png"
     }
-  ],
-  "splash_pages": null
+  ]
 }
