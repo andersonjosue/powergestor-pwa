@@ -1,8 +1,8 @@
 // src/App.jsx
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Home from "./pages/Powergestor";
+import Home from "./pages/powergestor";
 import NotFound from "./pages/NotFound";
-import Planilhas from "./pages/Planilhas";
+import Planilhas from "./pages/planilhas";
 
 function App() {
   return (
