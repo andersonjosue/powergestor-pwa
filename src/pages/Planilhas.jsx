@@ -135,7 +135,6 @@ function planilhas() {
         <iframe src="https://docs.google.com/spreadsheets/d/1HQr0xQ_9J-XknmXBdgLEWLzTMU7NrNRFnqLldsBoBgk/edit?gid=1852971832#gid=1852971832" frameBorder="0"></iframe>
       </div>
       <div id="aba2" className={`tab-content ${activeTab === 'aba2' ? 'active' : ''}`}>
-        
         <iframe src="https://app.powerchats.com.br/" frameBorder="0"></iframe>
       </div>
       <div id="aba3" className={`tab-content ${activeTab === 'aba3' ? 'active' : ''}`}>
