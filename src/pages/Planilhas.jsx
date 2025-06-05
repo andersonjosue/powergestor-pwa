@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import '../App.css'; // This will be your style.css, renamed or linked.
-//import { BrowserRouter as Router, Route, Routes, Navigate } from "react-router-dom"
 
 function planilhas() {
   const [activeTab, setActiveTab] = useState('aba1');
@@ -65,7 +64,7 @@ function planilhas() {
             className={`tab-btn ${activeTab === 'aba1' ? 'active' : ''}`}
             onClick={() => handleTabClick('aba1')}
           >
-            Planilhas
+            PLANILHA DE ATENDIMENTOS
           </button>
           <button className="reload-btn" onClick={() => handleReload('aba1')}>
             ↻
@@ -76,7 +75,7 @@ function planilhas() {
             className={`tab-btn ${activeTab === 'aba2' ? 'active' : ''}`}
             onClick={() => handleTabClick('aba2')}
           >
-            ANALYTICS
+            POWERCHAT
           </button>
           <button className="reload-btn" onClick={() => handleReload('aba2')}>
             ↻
@@ -87,7 +86,7 @@ function planilhas() {
             className={`tab-btn ${activeTab === 'aba3' ? 'active' : ''}`}
             onClick={() => handleTabClick('aba3')}
           >
-            RELATÓRIOS
+            SAIDAS / DEMONSTRAÇÃO
           </button>
           <button className="reload-btn" onClick={() => handleReload('aba3')}>
             ↻
@@ -98,7 +97,7 @@ function planilhas() {
             className={`tab-btn ${activeTab === 'aba4' ? 'active' : ''}`}
             onClick={() => handleTabClick('aba4')}
           >
-            RELATÓRIOS
+            ACESSOS CLIENTES
           </button>
           <button className="reload-btn" onClick={() => handleReload('aba4')}>
             ↻
@@ -109,7 +108,7 @@ function planilhas() {
             className={`tab-btn ${activeTab === 'aba5' ? 'active' : ''}`}
             onClick={() => handleTabClick('aba5')}
           >
-            RELATÓRIOS
+            PLANILHA SABADOS
           </button>
           <button className="reload-btn" onClick={() => handleReload('aba5')}>
             ↻
@@ -120,7 +119,7 @@ function planilhas() {
             className={`tab-btn ${activeTab === 'aba6' ? 'active' : ''}`}
             onClick={() => handleTabClick('aba6')}
           >
-            RELATÓRIOS
+            PLANILHA BLOQUEIOS
           </button>
           <button className="reload-btn" onClick={() => handleReload('aba6')}>
             ↻
