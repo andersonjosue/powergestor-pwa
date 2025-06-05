@@ -1,10 +1,9 @@
 {
-  "name": "PowerGestor PWA",
-  "short_name": "PowerGestor PWA",
-  "start_url": "/powergestor/index.html",
-  "scope": "/powergestor/",
+   "name": "Powergestor",
+  "short_name": "Powergestor",
+  "start_url": "/powergestor",
   "display": "standalone",
-  "background_color": "#000000",
+  "background_color": "#ffffff",
   "theme_color": "#000000",
   "orientation": "any",
   "icons": [
