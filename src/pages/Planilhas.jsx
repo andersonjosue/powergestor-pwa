@@ -70,7 +70,7 @@ function Planilhas() {
             ↻
           </button>
         </div>
-        <div className="tab-header">
+        {/* <div className="tab-header">
           <button
             className={`tab-btn ${activeTab === 'aba2' ? 'active' : ''}`}
             onClick={() => handleTabClick('aba2')}
@@ -80,7 +80,7 @@ function Planilhas() {
           <button className="reload-btn" onClick={() => handleReload('aba2')}>
             ↻
           </button>
-        </div>
+        </div> */}
         <div className="tab-header">
           <button
             className={`tab-btn ${activeTab === 'aba3' ? 'active' : ''}`}
@@ -134,9 +134,9 @@ function Planilhas() {
       <div id="aba1" className={`tab-content ${activeTab === 'aba1' ? 'active' : ''}`}>
         <iframe src="https://docs.google.com/spreadsheets/d/1HQr0xQ_9J-XknmXBdgLEWLzTMU7NrNRFnqLldsBoBgk/edit?gid=1852971832#gid=1852971832" frameBorder="0"></iframe>
       </div>
-      <div id="aba2" className={`tab-content ${activeTab === 'aba2' ? 'active' : ''}`}>
+      {/* <div id="aba2" className={`tab-content ${activeTab === 'aba2' ? 'active' : ''}`}>
         <iframe src="https://app.powerchats.com.br/" frameBorder="0"></iframe>
-      </div>
+      </div> */}
       <div id="aba3" className={`tab-content ${activeTab === 'aba3' ? 'active' : ''}`}>
         <iframe src="https://docs.google.com/spreadsheets/d/1QyKqMe-dHuIXHmS5A9qhGcw5LQHYsEZzDFZV0P05Euc/edit?pli=1&gid=900920329#gid=900920329" frameBorder="0"></iframe>
       </div>
