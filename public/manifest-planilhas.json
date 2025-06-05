@@ -1,7 +1,8 @@
 {
    "name": "Planilhas",
   "short_name": "Planilhas",
-  "start_url": "/planilhas",
+  "start_url": "/powergestor/",
+  "scope": "/powergestor/",
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#000000",

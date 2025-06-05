@@ -15,13 +15,19 @@ self.addEventListener('install', event => {
 
 self.addEventListener('fetch', event => {
   event.respondWith(
-    caches.match(event.request)
-      .then(response => response || fetch(event.request))
-      .catch(() => {
-        // fallback opcional: pode retornar uma página offline
-      })
+    caches.match(event.request).then(cached => {
+      const fetchPromise = fetch(event.request).then(networkResponse => {
+        return caches.open(CACHE_NAME).then(cache => {
+          cache.put(event.request, networkResponse.clone());
+          return networkResponse;
+        });
+      }).catch(() => cached);
+
+      return cached || fetchPromise;
+    })
   );
 });
+
 
 self.addEventListener('activate', event => {
   event.waitUntil(
@@ -36,3 +42,6 @@ self.addEventListener('activate', event => {
     )
   );
 });
+
+navigator.serviceWorker.register('/sw-powergestor.js', { scope: '/powergestor/' });
+
