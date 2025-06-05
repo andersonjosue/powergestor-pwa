@@ -1,12 +1,12 @@
-const CACHE_NAME = 'planilhas-v2';
-const urlsToCache = [
-  '/planilhas/',
-  '/planilhas//index.html',
-  '/planilhas//style.css',
-  '/planilhas/manifest.json',
-  '../icons/icon-192x192.png',
-  '..//icons/icon-512x512.png'
-];
+const CACHE_NAME = 'powergestor-v2';
+// const urlsToCache = [
+//   '/',
+//   '/index.html', // This will be handled by Vite's build output
+//   '/style.css', // This will be handled by Vite's build output
+//   '/manifest.json',
+//   '/icons/pg-192x192.png', // Corrected from original index.html path
+//   '/icons/pg-512x512.png'  // Corrected from original index.html path
+// ];
 
 self.addEventListener('install', event => {
   event.waitUntil(
@@ -25,7 +25,7 @@ self.addEventListener('fetch', event => {
 });
 
 self.addEventListener('activate', event => {
-  event.waitUntil(
+  event(
     caches.keys().then(cacheNames =>
       Promise.all(
         cacheNames.map(cache => {
