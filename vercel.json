@@ -1,4 +1,4 @@
-
+{
   "rewrites": [
     { "source": "/powergestor/(.*)", "destination": "/powergestor/index.html" },
     { "source": "/planilhas/(.*)", "destination": "/planilhas/index.html" },
