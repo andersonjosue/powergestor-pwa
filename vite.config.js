@@ -7,9 +7,9 @@ export default defineConfig({
   build: {
     rollupOptions: {
       input: {
-        powergestor: resolve(__dirname, 'powergestor/index.html'),
-        planilhas: resolve(__dirname, 'planilhas/index.html'),
-        powerchats: resolve(__dirname, 'powerchats/index.html')
+        powergestor: resolve(__dirname, 'Powergestor/index.html'),
+        planilhas: resolve(__dirname, 'Planilhas/index.html'),
+        powerchats: resolve(__dirname, 'Powerchats/index.html')
       },
       output: {
         entryFileNames: 'assets/[name].js',
