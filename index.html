@@ -1,36 +1,18 @@
-<!doctype html>
+<!-- index.html na pasta raiz do projeto -->
+<!DOCTYPE html>
 <html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" /> <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5, minimum-scale=0.5, user-scalable=yes">
-    <meta name="theme-color" content="#000000">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <link rel="apple-touch-icon" href="/icons/pg-192x192.png">
-    <title>PowerGestor PWA</title>
-   <script>
-      const pathname = window.location.pathname;
-      const link = document.createElement("link");
-      link.rel = "manifest";
-
-      if (pathname.startsWith("/powerchats")) {
-        link.href = "powerchats/manifest.json";
-      } else 
-      if (pathname.startsWith("/powergestor")) {
-        link.href = "powergestor/manifest.json";
-      } else 
-       if (pathname.startsWith("/planilhas")) {
-        link.href = "planilhas/manifest.json";
-      } else{        
-        link.href = "/manifest.json";
-      }
-
-      document.head.appendChild(link);
-    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Multi PWA Root</title>
   </head>
   <body>
     <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
+    <p>Este é apenas um index.html padrão na raiz. Acesse os apps em:</p>
+    <ul>
+      <li><a href="/powergestor">/powergestor</a></li>
+      <li><a href="/planilhas">/planilhas</a></li>
+      <li><a href="/powerchats">/powerchats</a></li>
+    </ul>
   </body>
-
 </html>
