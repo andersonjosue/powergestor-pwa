@@ -1,20 +1,19 @@
 {
-   "name": "Planilhas",
-  "short_name": "Planilhas",
-  "start_url": "/planilhas/",
-  "scope": "/planilhas/",
+   "name": "Powergestor",
+  "short_name": "Powergestor",
+  "start_url": "/powergestor",
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#000000",
   "orientation": "any",
   "icons": [
-   {
-      "src": "../icons/planilha-128x128.png",
-      "sizes": "128x128",
+    {
+      "src": "../icons/pg-192x192.png",
+      "sizes": "192x192",
       "type": "image/png"
     },
     {
-      "src": "../icons/planilha-512x512.png",
+      "src": "../icons/pg-512x512.png",
       "sizes": "512x512",
       "type": "image/png"
     }
