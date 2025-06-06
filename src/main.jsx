@@ -32,13 +32,13 @@ if ("serviceWorker" in navigator) {
     let scope = "/";
 
     if (pathname.startsWith("/powergestor")) {
-      swPath = "/sw-powergestor.js";
+      swPath = "/sw.js";
       scope = "/powergestor/";
     } else if (pathname.startsWith("/planilhas")) {
-      swPath = "/sw-planilhas.js";
+      swPath = "/sw.js";
       scope = "/planilhas/";
     } else if (pathname.startsWith("/powerchats")) {
-      swPath = "/sw-powerchats.js";
+      swPath = "/sw.js";
       scope = "/powerchats/";
     }
 
