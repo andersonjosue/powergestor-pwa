@@ -14,13 +14,13 @@
       link.rel = "manifest";
 
       if (pathname.startsWith("/powerchats")) {
-        link.href = "/manifest-powerchats.json";
+        link.href = "powerchats/manifest.json";
       } else 
       if (pathname.startsWith("/powergestor")) {
-        link.href = "/manifest-powergestor.json";
+        link.href = "powergestor/manifest.json";
       } else 
        if (pathname.startsWith("/planilhas")) {
-        link.href = "/manifest-planilhas.json";
+        link.href = "planilhas/manifest.json";
       } else{        
         link.href = "/manifest.json";
       }
