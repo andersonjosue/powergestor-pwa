@@ -6,11 +6,11 @@ export default defineConfig({
   plugins: [react()],
   build: {
     rollupOptions: {
-      input: {
-        powergestor: resolve(__dirname, 'powergestor/index.html'),
-        planilhas: resolve(__dirname, 'planilhas/index.html'),
-        powerchats: resolve(__dirname, 'powerchats/index.html')
-      },
+      // input: {
+      //   powergestor: resolve(__dirname, 'powergestor/index.html'),
+      //   planilhas: resolve(__dirname, 'planilhas/index.html'),
+      //   powerchats: resolve(__dirname, 'powerchats/index.html')
+      // },
       output: {
         entryFileNames: 'assets/[name].js',
         chunkFileNames: 'assets/[name].js',
