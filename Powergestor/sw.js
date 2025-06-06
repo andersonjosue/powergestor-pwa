@@ -1,7 +1,7 @@
 const CACHE_NAME = 'powergestor-v2';
 const urlsToCache = [
-  '/Powergestor/',
-  '/Powergestor/index.html',
+  '/powergestor/',
+  '/powergestor/index.html',
   '/manifest-powergestor.json',
   '/icons/pg-192x192.png',
   '/icons/pg-512x512.png'
