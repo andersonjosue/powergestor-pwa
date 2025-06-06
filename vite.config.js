@@ -19,5 +19,5 @@ export default defineConfig({
     },
     outDir: 'dist'
   },
-  base: '', // importante para servir do subdomínio raiz
+  base: '/powergestor/', // importante para servir do subdomínio raiz
 });
