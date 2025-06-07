@@ -10,12 +10,9 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/powergestor" element={<Home />} />
-        <Route path="/powergestor/" element={<Home />} />
-        <Route path="/planilhas" element={<Planilhas />} />
-        <Route path="/planilhas/" element={<Planilhas />} />
-        <Route path="/powerchats" element={<Powerchats />} />
-        <Route path="/powerchats/" element={<Powerchats />} />
+        <Route path="/powergestor/*" element={<Home />} />
+        <Route path="/planilhas/*" element={<Planilhas />} />
+        <Route path="/powerchats/*" element={<Powerchats />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>
