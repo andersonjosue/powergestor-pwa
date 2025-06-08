@@ -1,5 +1,5 @@
 // src/App.jsx
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { HashRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/Powergestor";
 import NotFound from "./pages/NotFound";
 import Planilhas from "./pages/Planilhas";
