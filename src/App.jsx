@@ -7,7 +7,7 @@ import Powerchats from "./pages/Powerchats";
 
 function App() {
   return (
-    <BrowserRouter>
+    <HashRouter>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/powergestor/*" element={<Home />} />
@@ -15,7 +15,7 @@ function App() {
         <Route path="/powerchats/*" element={<Powerchats />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 
