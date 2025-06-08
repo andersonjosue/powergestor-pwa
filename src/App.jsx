@@ -1,5 +1,4 @@
-// src/App.jsx
-import { HashRouter, Routes, Route } from "react-router-dom";
+import { HashRouter, Routes, Route, Navigate } from "react-router-dom";
 import Home from "./pages/Powergestor";
 import NotFound from "./pages/NotFound";
 import Planilhas from "./pages/Planilhas";
@@ -9,10 +8,15 @@ function App() {
   return (
     <HashRouter>
       <Routes>
-        <Route path="/" element={<Home />} />
+        {/* Redireciona / para /powergestor */}
+        <Route path="/" element={<Navigate to="/powergestor" />} />
+        
+        {/* Rotas principais */}
         <Route path="/powergestor/*" element={<Home />} />
         <Route path="/planilhas/*" element={<Planilhas />} />
         <Route path="/powerchats/*" element={<Powerchats />} />
+
+        {/* Rota de erro */}
         <Route path="*" element={<NotFound />} />
       </Routes>
     </HashRouter>
