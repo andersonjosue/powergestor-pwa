@@ -8,15 +8,6 @@ import Powerchats from "./pages/Powerchats";
 function App() {
   return (
     <BrowserRouter>
-      import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
-import Home from './pages/Powergestor';
-import Planilhas from './pages/Planilhas';
-import Powerchats from './pages/Powerchats';
-import NotFound from './pages/NotFound';
-
-function App() {
-  return (
-    <BrowserRouter>
       <Routes>
         <Route path="/powergestor/*" element={<Home />} />
         <Route path="/planilhas/*" element={<Planilhas />} />
@@ -27,12 +18,6 @@ function App() {
         
         <Route path="*" element={<NotFound />} />
       </Routes>
-    </BrowserRouter>
-  );
-}
-
-export default App;
-
     </BrowserRouter>
   );
 }
