@@ -1,10 +1,11 @@
 const CACHE_NAME = 'planilhas-v2';
 const urlsToCache = [
   '/planilhas/',
-  '/planilhas/index.html',
-  '/manifest-planilhas.json',
-  '/icons/pg-192x192.png',
-  '/icons/pg-512x512.png'
+  '/planilhas//index.html',
+  '/planilhas//style.css',
+  '/planilhas/manifest.json',
+  '../icons/icon-192x192.png',
+  '..//icons/icon-512x512.png'
 ];
 
 self.addEventListener('install', event => {
@@ -15,16 +16,11 @@ self.addEventListener('install', event => {
 
 self.addEventListener('fetch', event => {
   event.respondWith(
-    caches.match(event.request).then(cached => {
-      const fetchPromise = fetch(event.request).then(networkResponse => {
-        return caches.open(CACHE_NAME).then(cache => {
-          cache.put(event.request, networkResponse.clone());
-          return networkResponse;
-        });
-      }).catch(() => cached);
-
-      return cached || fetchPromise;
-    })
+    caches.match(event.request)
+      .then(response => response || fetch(event.request))
+      .catch(() => {
+        // fallback opcional (pode ser um arquivo offline.html)
+      })
   );
 });
 
@@ -41,5 +37,3 @@ self.addEventListener('activate', event => {
     )
   );
 });
-
-navigator.serviceWorker.register('/sw-planilhas.js', { scope: '/planilhas/' });

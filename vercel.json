@@ -1,5 +1,19 @@
 {
-  "rewrites": [
-    { "source": "/(.*)", "destination": "/" }
+  "redirects": [
+    {
+      "source": "/",
+      "destination": "/powergestor/",
+      "permanent": false
+    },
+    {
+      "source": "/powergestor",
+      "destination": "/powergestor/",
+      "permanent": false
+    },
+    {
+      "source": "/planilhas",
+      "destination": "/planilhas/",
+      "permanent": false
+    }
   ]
 }

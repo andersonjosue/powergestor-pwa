@@ -1,10 +1,10 @@
 {
-   "name": "Planilhas",
-  "short_name": "Planilhas",
-  "start_url": "/powergestor/",
-  "scope": "/powergestor/",
+  "name": "Planilhas PWA",
+  "short_name": "Planilhas PWA",
+  "start_url": "/planilhas/index.html",
+  "scope": "/planilhas/",
   "display": "standalone",
-  "background_color": "#ffffff",
+  "background_color": "#000000",
   "theme_color": "#000000",
   "orientation": "any",
   "icons": [
