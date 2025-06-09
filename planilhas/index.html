@@ -12,15 +12,15 @@
   <title>Planilhas PWA</title>
 </head>
 <body>
-  <div class="tabs">
+  <!-- <div class="tabs">
     <div class="tab-header">
       <button class="tab-btn active" data-tab="aba1">PLANILHA DE ATENDIMENTOS</button>
       <button class="reload-btn" data-target="aba1">↻</button>
     </div>
-    <!-- <div class="tab-header">
+   <div class="tab-header">
       <button class="tab-btn" data-tab="aba2">POWERCHAT</button>
       <button class="reload-btn" data-target="aba2">↻</button>
-    </div> -->
+    </div> 
     <div class="tab-header">
       <button class="tab-btn" data-tab="aba3">SAIDAS / DEMONSTRAÇÃO</button>
       <button class="reload-btn" data-target="aba3">↻</button>
@@ -37,6 +37,19 @@
       <button class="tab-btn" data-tab="aba6">PLANILHA BLOQUEIOS</button>
       <button class="reload-btn" data-target="aba6">↻</button>
     </div>
+  </div> -->
+
+  <!-- Botão flutuante -->
+<button class="menu-button" onclick="toggleMenu()">☰</button>
+
+  <!-- Menu suspenso -->
+  <div class="menu-dropdown" id="dropdownMenu">
+    <a href="#" onclick="abrirAba('aba1')">Planilha de Atendimentos</a>
+    <!-- <a href="#" onclick="abrirAba('aba2')">PowerChat</a> -->
+    <a href="#" onclick="abrirAba('aba3')">Saídas / Demonstração</a>
+    <a href="#" onclick="abrirAba('aba4')">Acessos Clientes</a>
+    <a href="#" onclick="abrirAba('aba5')">Planilha Sábados</a>
+    <a href="#" onclick="abrirAba('aba6')">Planilha Bloqueios</a>
   </div>
 
   <div class="tab-content active" id="aba1">
@@ -62,16 +75,39 @@
   <div class="loader" id="loader"></div>
 
   <script>
-    // Controle de abas
-    document.querySelectorAll(".tab-btn").forEach(btn => {
-      btn.addEventListener("click", () => {
-        const target = btn.dataset.tab;
-        document.querySelectorAll(".tab-btn").forEach(b => b.classList.remove("active"));
-        document.querySelectorAll(".tab-content").forEach(c => c.classList.remove("active"));
+    // // Controle de abas
+    // document.querySelectorAll(".tab-btn").forEach(btn => {
+    //   btn.addEventListener("click", () => {
+    //     const target = btn.dataset.tab;
+    //     document.querySelectorAll(".tab-btn").forEach(b => b.classList.remove("active"));
+    //     document.querySelectorAll(".tab-content").forEach(c => c.classList.remove("active"));
 
-        btn.classList.add("active");
-        document.getElementById(target).classList.add("active");
-      });
+    //     btn.classList.add("active");
+    //     document.getElementById(target).classList.add("active");
+    //   });
+    // });
+
+    function toggleMenu() {
+    const menu = document.getElementById("dropdownMenu");
+    menu.style.display = menu.style.display === "flex" ? "none" : "flex";
+    }
+
+    function abrirAba(id) {
+      // Esconde todas as abas
+      document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+      // Mostra a aba clicada
+      document.getElementById(id).classList.add('active');
+      // Fecha o menu
+      document.getElementById("dropdownMenu").style.display = "none";
+    }
+
+    // Fecha menu se clicar fora
+    window.addEventListener("click", function (e) {
+      const button = document.querySelector(".menu-button");
+      const menu = document.getElementById("dropdownMenu");
+      if (!menu.contains(e.target) && !button.contains(e.target)) {
+        menu.style.display = "none";
+      }
     });
 
     // Recarregar iframes com feedback visual
