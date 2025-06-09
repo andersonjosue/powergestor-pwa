@@ -9,12 +9,12 @@
   "orientation": "any",
   "icons": [
     {
-      "src": "../icons/pg-192x192.png",
+      "src": "../icons/powergestor/android-chrome-192x192.png",
       "sizes": "192x192",
       "type": "image/png"
     },
     {
-      "src": "../icons/pg-512x512.png",
+      "src": "../icons/powergestor/android-chrome-512x512.png",
       "sizes": "512x512",
       "type": "image/png"
     }
