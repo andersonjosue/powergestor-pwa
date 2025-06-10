@@ -186,9 +186,9 @@ iframe {
   width: 8px;
   height: 30px;
   border-radius: 50% 0 0 50%;
-  background-color: #007bff;           /* fundo azul */
-  border: 2px solid red;            /* borda vermelha */
-  box-shadow: none;
+  background-color: #007bff;
+  border: 2px solid red;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* mesma sombra do menu-button */
   opacity: 1;
   cursor: pointer;
   z-index: 1900;
