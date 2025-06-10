@@ -112,13 +112,13 @@
     });
 
     // Seu código restante para iframes, service worker, loader etc permanece o mesmo
-    if ('serviceWorker' in navigator) {
-      window.addEventListener('load', () => {
-        navigator.serviceWorker.register('sw.js').then(reg => {
-          setInterval(() => reg.update(), 60 * 60 * 1000);
-        });
-      });
-    }
+    // if ('serviceWorker' in navigator) {
+    //   window.addEventListener('load', () => {
+    //     navigator.serviceWorker.register('sw.js').then(reg => {
+    //       setInterval(() => reg.update(), 60 * 60 * 1000);
+    //     });
+    //   });
+    // }
 
     document.querySelectorAll('iframe').forEach(iframe => {
       iframe.addEventListener('load', () => {
