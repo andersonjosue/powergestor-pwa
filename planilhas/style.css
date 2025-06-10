@@ -226,37 +226,3 @@ iframe {
 .menu-dropdown a:last-child {
   border-bottom: none;
 }
-
-button {
-  position: relative;
-  padding: 10px 20px;
-  font-size: 16px;
-  cursor: pointer;
-}
-
-button:disabled {
-  cursor: not-allowed;
-  opacity: 0.6;
-}
-
-/* Ícone de meia lua */
-.moon-icon {
-  position: absolute;
-  top: 4px;
-  right: 4px;
-  width: 16px;
-  height: 16px;
-  pointer-events: none;
-  background: radial-gradient(circle at 50% 50%, transparent 50%, black 50%), 
-              radial-gradient(circle at 60% 50%, white 50%, transparent 50%);
-  background-repeat: no-repeat;
-  background-size: 100% 100%;
-  border-radius: 50%;
-  display: none; /* escondido por padrão */
-}
-
-/* Mostrar a meia lua só quando botão estiver disabled */
-button:disabled .moon-icon {
-  display: block;
-}    
-
