@@ -13,55 +13,57 @@
   <title>Planilhas PWA</title>
 </head>
 <body>
-  <!-- Área invisível no canto superior direito -->
+  <!-- Área invisível no canto superior direito para ativar botão -->
   <div id="hoverArea"></div>
 
   <!-- Botão flutuante -->
-  <button class="menu-button" onclick="toggleMenu()">
+  <button class="menu-button" onclick="toggleMenu()" aria-label="Abrir menu">
     ☰
-  <span class="moon-hint"></span>
+    <span class="moon-hint"></span>
   </button>
 
-   <!-- Menu suspenso -->
-  <div class="menu-dropdown" id="dropdownMenu">
-    <a href="#" onclick="abrirAba('aba1')">Planilha de Atendimentos</a>
-    <!-- <a href="#" onclick="abrirAba('aba2')">PowerChat</a> -->
-    <a href="#" onclick="abrirAba('aba3')">Saídas / Demonstração</a>
-    <a href="#" onclick="abrirAba('aba4')">Acessos Clientes</a>
-    <a href="#" onclick="abrirAba('aba5')">Planilha Sábados</a>
-    <a href="#" onclick="abrirAba('aba6')">Planilha Bloqueios</a>
+  <!-- Menu suspenso -->
+  <div class="menu-dropdown" id="dropdownMenu" role="menu" aria-hidden="true">
+    <a href="#" onclick="abrirAba('aba1'); return false;" role="menuitem">Planilha de Atendimentos</a>
+    <!-- <a href="#" onclick="abrirAba('aba2'); return false;">PowerChat</a> -->
+    <a href="#" onclick="abrirAba('aba3'); return false;" role="menuitem">Saídas / Demonstração</a>
+    <a href="#" onclick="abrirAba('aba4'); return false;" role="menuitem">Acessos Clientes</a>
+    <a href="#" onclick="abrirAba('aba5'); return false;" role="menuitem">Planilha Sábados</a>
+    <a href="#" onclick="abrirAba('aba6'); return false;" role="menuitem">Planilha Bloqueios</a>
   </div>
 
-  <!-- Conteúdos das abas (mantido seu original) -->
+  <!-- Conteúdo das abas -->
   <div class="tab-content active" id="aba1">
-    <iframe src="https://docs.google.com/spreadsheets/d/1HQr0xQ_9J-XknmXBdgLEWLzTMU7NrNRFnqLldsBoBgk/edit?gid=1852971832#gid=1852971832"></iframe>
+    <iframe src="https://docs.google.com/spreadsheets/d/1HQr0xQ_9J-XknmXBdgLEWLzTMU7NrNRFnqLldsBoBgk/edit?gid=1852971832#gid=1852971832" loading="lazy" title="Planilha de Atendimentos"></iframe>
   </div>
   <!-- <div class="tab-content" id="aba2">
-    <iframe src="https://app.powerchats.com.br/"></iframe>
+    <iframe src="https://app.powerchats.com.br/" loading="lazy" title="PowerChat"></iframe>
   </div> -->
   <div class="tab-content" id="aba3">
-    <iframe src="https://docs.google.com/spreadsheets/d/1QyKqMe-dHuIXHmS5A9qhGcw5LQHYsEZzDFZV0P05Euc/edit?pli=1&gid=900920329#gid=900920329"></iframe>
+    <iframe src="https://docs.google.com/spreadsheets/d/1QyKqMe-dHuIXHmS5A9qhGcw5LQHYsEZzDFZV0P05Euc/edit?pli=1&gid=900920329#gid=900920329" loading="lazy" title="Saídas / Demonstração"></iframe>
   </div>
   <div class="tab-content" id="aba4">
-    <iframe src="https://docs.google.com/spreadsheets/d/1ep0hFw7CdT7l7HsLQNdPLIFZ1fyRSeKZFhvmFSY-hwQ/edit?gid=0#gid=0"></iframe>
+    <iframe src="https://docs.google.com/spreadsheets/d/1ep0hFw7CdT7l7HsLQNdPLIFZ1fyRSeKZFhvmFSY-hwQ/edit?gid=0#gid=0" loading="lazy" title="Acessos Clientes"></iframe>
   </div>
   <div class="tab-content" id="aba5">
-    <iframe src="https://docs.google.com/spreadsheets/d/1B1GufNXVUOJ8rGGxfDTrP_qQ_taZ-D0VMhgPpuSl5gA/edit?gid=1740082606#gid=1740082606"></iframe>
+    <iframe src="https://docs.google.com/spreadsheets/d/1B1GufNXVUOJ8rGGxfDTrP_qQ_taZ-D0VMhgPpuSl5gA/edit?gid=1740082606#gid=1740082606" loading="lazy" title="Planilha Sábados"></iframe>
   </div>
   <div class="tab-content" id="aba6">
-    <iframe src="https://docs.google.com/spreadsheets/d/13s2djg-M_PmL36zkRwrEGa1u1U46JULBepiFxJo_JiM/edit?gid=698920338#gid=698920338"></iframe>
+    <iframe src="https://docs.google.com/spreadsheets/d/13s2djg-M_PmL36zkRwrEGa1u1U46JULBepiFxJo_JiM/edit?gid=698920338#gid=698920338" loading="lazy" title="Planilha Bloqueios"></iframe>
   </div>
 
+  <!-- Loader -->
   <div class="loader" id="loader"></div>
 
   <script>
-     const menuButton = document.querySelector('.menu-button');
+    const menuButton = document.querySelector('.menu-button');
     const hoverArea = document.getElementById('hoverArea');
     const menu = document.getElementById('dropdownMenu');
 
     function showButton() {
       menuButton.classList.add('visible');
       menuButton.classList.remove('moon-hint-visible');
+      menu.setAttribute('aria-hidden', 'true');
     }
 
     function hideButton() {
@@ -90,13 +92,14 @@
     function toggleMenu() {
       if (menu.style.display === 'flex') {
         menu.style.display = 'none';
+        menu.setAttribute('aria-hidden', 'true');
         hideButton(); // mostrará a meia-lua se necessário
       } else {
         menu.style.display = 'flex';
+        menu.setAttribute('aria-hidden', 'false');
         showButton(); // esconde a meia-lua e mostra o botão
       }
     }
-
 
     function abrirAba(id) {
       document.querySelectorAll('.tab-content').forEach((el) =>
@@ -104,6 +107,7 @@
       );
       document.getElementById(id).classList.add('active');
       menu.style.display = 'none';
+      menu.setAttribute('aria-hidden', 'true');
       hideButton();
     }
 
@@ -115,10 +119,12 @@
         !hoverArea.contains(e.target)
       ) {
         menu.style.display = 'none';
+        menu.setAttribute('aria-hidden', 'true');
         hideButton();
       }
     });
 
+    // Loader para iframes
     document.querySelectorAll('iframe').forEach(iframe => {
       iframe.addEventListener('load', () => {
         document.getElementById('loader').style.display = 'none';
