@@ -1,3 +1,4 @@
+/* === Reset e base === */
 body {
   height: 100vh;
   overflow: hidden;
@@ -7,6 +8,7 @@ body {
   background-color: #f5f5f5;
 }
 
+/* === Tabs e conteúdos === */
 .tabs {
   display: flex;
   width: 100%;
@@ -103,6 +105,7 @@ iframe {
   display: block;
 }
 
+/* Loader animado */
 .loader {
   display: none;
   position: fixed;
@@ -123,6 +126,7 @@ iframe {
   100% { transform: translate(-50%, -50%) rotate(360deg); }
 }
 
+/* Responsivo */
 @media (max-width: 600px) {
   .tab-btn {
     font-size: 10px;
@@ -136,8 +140,7 @@ iframe {
   }
 }
 
-/* menu button */
-
+/* === BOTÃO PRINCIPAL DO MENU === */
 .menu-button {
   position: fixed;
   top: 10px;
@@ -146,7 +149,7 @@ iframe {
   height: 36px;
   border-radius: 50%;
   background-color: #007bff;
-  color: transparent; /* Oculta ícone por padrão */
+  color: white; /* Ícone visível */
   font-size: 20px;
   border: none;
   z-index: 1000;
@@ -154,43 +157,38 @@ iframe {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   opacity: 0;
   pointer-events: none;
-  transition: opacity 0.3s ease, color 0.3s ease;
+  transition: opacity 0.3s ease;
 }
 
-/* Botão visível (com ícone) */
 .menu-button.visible {
   opacity: 1;
   pointer-events: auto;
-  color: white; /* Mostra o ícone ☰ */
 }
 
-/* Meia-lua visível (sem ícone) */
-.menu-button.moon-hint-visible {
-  opacity: 0.4;
+/* === BOTÃO MEIA-LUA === */
+.moon-button {
+  position: fixed;
+  top: 10px;
+  right: 0; /* Encostada na borda da tela */
+  width: 36px;
+  height: 36px;
+  border-radius: 50% 0 0 50%;
+  background: radial-gradient(circle at 30% 50%, white 0%, white 55%, transparent 56%);
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.3);
+  border: none;
+  cursor: pointer;
+  z-index: 1000;
+  opacity: 1;
+  pointer-events: auto;
+  transition: opacity 0.3s ease;
+}
+
+.moon-button.hidden {
+  opacity: 0;
   pointer-events: none;
-  color: transparent; /* Oculta o ícone ☰ */
 }
 
-/* Meia-lua decorativa */
-.menu-button .moon-hint {
-  position: absolute;
-  top: -4px;
-  right: -4px;
-  width: 14px;
-  height: 14px;
-  background: radial-gradient(circle at 40% 50%, white 0%, white 50%, transparent 50.5%);
-  border-radius: 50%;
-  box-shadow: 0 0 4px rgba(0,0,0,0.2);
-  display: none;
-  pointer-events: none;
-}
-
-/* Mostrar meia-lua quando necessário */
-.menu-button.moon-hint-visible .moon-hint {
-  display: block;
-}
-
-/* Área invisível para ativar o botão no canto */
+/* === ÁREA INVISÍVEL PARA HOVER === */
 #hoverArea {
   position: fixed;
   top: 0;
@@ -198,10 +196,10 @@ iframe {
   width: 40px;
   height: 40px;
   z-index: 999;
-  /* background: rgba(255,0,0,0.1);  Remover depois */
+  /* background: rgba(255,0,0,0.1);  Remova depois se quiser */
 }
 
-/* Menu Dropdown */
+/* === MENU DROPDOWN === */
 .menu-dropdown {
   position: fixed;
   top: 50px;
@@ -215,6 +213,10 @@ iframe {
   z-index: 999;
   min-width: 220px;
   overflow: hidden;
+}
+
+.menu-dropdown.visible {
+  display: flex;
 }
 
 .menu-dropdown a {

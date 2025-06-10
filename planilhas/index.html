@@ -13,14 +13,14 @@
   <title>Planilhas PWA</title>
 </head>
 <body>
-  <!-- Área invisível no canto superior direito para ativar botão -->
+  <!-- Área invisível no canto superior direito para ativar menu no hover -->
   <div id="hoverArea"></div>
 
-  <!-- Botão flutuante -->
-  <button class="menu-button" onclick="toggleMenu()" aria-label="Abrir menu">
-    ☰
-    <span class="moon-hint"></span>
-  </button>
+  <!-- Botão meia-lua (visível quando menu está fechado) -->
+  <button class="moon-button" aria-label="Abrir menu" tabindex="0"></button>
+
+  <!-- Botão principal do menu (ícone ☰), inicialmente oculto -->
+  <button class="menu-button" aria-label="Abrir menu" tabindex="0">☰</button>
 
   <!-- Menu suspenso -->
   <div class="menu-dropdown" id="dropdownMenu" role="menu" aria-hidden="true">
@@ -57,70 +57,103 @@
 
   <script>
     const menuButton = document.querySelector('.menu-button');
+    const moonButton = document.querySelector('.moon-button');
     const hoverArea = document.getElementById('hoverArea');
     const menu = document.getElementById('dropdownMenu');
 
-    function showButton() {
-      menuButton.classList.add('visible');
-      menuButton.classList.remove('moon-hint-visible');
-      menu.setAttribute('aria-hidden', 'true');
-    }
-
-    function hideButton() {
-      const isMenuOpen = menu.style.display === 'flex';
-
-      if (
-        !hoverArea.matches(':hover') &&
-        !menuButton.matches(':hover') &&
-        !isMenuOpen
-      ) {
-        menuButton.classList.remove('visible');
-        menuButton.classList.add('moon-hint-visible');
-      }
-    }
-
-    hoverArea.addEventListener('mouseenter', showButton);
-    hoverArea.addEventListener('mouseleave', () => {
-      setTimeout(hideButton, 100);
-    });
-
-    menuButton.addEventListener('mouseenter', showButton);
-    menuButton.addEventListener('mouseleave', () => {
-      setTimeout(hideButton, 100);
-    });
-
-    function toggleMenu() {
-      if (menu.style.display === 'flex') {
-        menu.style.display = 'none';
-        menu.setAttribute('aria-hidden', 'true');
-        hideButton(); // mostrará a meia-lua se necessário
-      } else {
+    // Função para mostrar o botão principal e esconder meia-lua
+    function showMenuButton() {
+      menuButton.style.opacity = '1';
+      menuButton.style.pointerEvents = 'auto';
+      moonButton.style.opacity = '0';
+      moonButton.style.pointerEvents = 'none';
+      // Mostra o menu somente se estiver aberto
+      if(menu.style.display === 'flex') {
         menu.style.display = 'flex';
         menu.setAttribute('aria-hidden', 'false');
-        showButton(); // esconde a meia-lua e mostra o botão
       }
     }
 
+    // Função para mostrar a meia-lua e esconder botão principal e menu
+    function showMoonButton() {
+      menuButton.style.opacity = '0';
+      menuButton.style.pointerEvents = 'none';
+      menu.style.display = 'none';
+      menu.setAttribute('aria-hidden', 'true');
+      moonButton.style.opacity = '0.4';
+      moonButton.style.pointerEvents = 'auto';
+    }
+
+    // Mostrar menu ao passar o mouse em hoverArea ou meia-lua
+    function onHover() {
+      showMenuButton();
+      menu.style.display = 'flex';
+      menu.setAttribute('aria-hidden', 'false');
+    }
+
+    // Ocultar menu e mostrar meia-lua ao sair do hover da área, botão e menu
+    function onHoverOut() {
+      setTimeout(() => {
+        if (
+          !hoverArea.matches(':hover') &&
+          !menuButton.matches(':hover') &&
+          !moonButton.matches(':hover') &&
+          !menu.matches(':hover')
+        ) {
+          showMoonButton();
+        }
+      }, 150);
+    }
+
+    // Eventos para hoverArea e moonButton
+    hoverArea.addEventListener('mouseenter', onHover);
+    hoverArea.addEventListener('mouseleave', onHoverOut);
+
+    moonButton.addEventListener('mouseenter', onHover);
+    moonButton.addEventListener('mouseleave', onHoverOut);
+
+    // Eventos para menuButton e menu dropdown (pra esconder quando sair do hover)
+    menuButton.addEventListener('mouseenter', () => {
+      menu.style.display = 'flex';
+      menu.setAttribute('aria-hidden', 'false');
+    });
+    menuButton.addEventListener('mouseleave', onHoverOut);
+
+    menu.addEventListener('mouseleave', onHoverOut);
+    menu.addEventListener('mouseenter', () => {
+      menu.style.display = 'flex';
+      menu.setAttribute('aria-hidden', 'false');
+    });
+
+    // Alternativa: clique no menuButton também abre ou fecha menu
+    menuButton.addEventListener('click', () => {
+      if(menu.style.display === 'flex'){
+        showMoonButton();
+      } else {
+        showMenuButton();
+        menu.style.display = 'flex';
+        menu.setAttribute('aria-hidden', 'false');
+      }
+    });
+
+    // Abrir aba ao clicar no menu e fechar menu
     function abrirAba(id) {
-      document.querySelectorAll('.tab-content').forEach((el) =>
+      document.querySelectorAll('.tab-content').forEach(el =>
         el.classList.remove('active')
       );
       document.getElementById(id).classList.add('active');
-      menu.style.display = 'none';
-      menu.setAttribute('aria-hidden', 'true');
-      hideButton();
+      showMoonButton();
     }
 
     // Fecha menu se clicar fora
-    window.addEventListener('click', function (e) {
+    window.addEventListener('click', function(e) {
       if (
         !menu.contains(e.target) &&
         !menuButton.contains(e.target) &&
-        !hoverArea.contains(e.target)
+        !hoverArea.contains(e.target) &&
+        !moonButton.contains(e.target)
       ) {
-        menu.style.display = 'none';
-        menu.setAttribute('aria-hidden', 'true');
-        hideButton();
+        showMoonButton();
       }
     });
 
@@ -130,6 +163,9 @@
         document.getElementById('loader').style.display = 'none';
       });
     });
+
+    // Inicializa com a meia-lua visível
+    showMoonButton();
   </script>
 </body>
 </html>
