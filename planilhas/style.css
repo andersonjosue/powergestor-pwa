@@ -181,17 +181,18 @@ iframe {
 /* === BOTÃO MEIA-LUA === */
 .moon-button {
   position: fixed;
-  top: 12px;       /* mesma altura da foto */
-  right: 0px;     /* 10px da borda + 40px da foto */
-  width: 24px;
+  top: 12px;        /* mesma altura da foto */
+  right: 0px;       /* encostada na lateral */
+  width: 8px;
   height: 30px;
   border-radius: 50% 0 0 50%;
   background: radial-gradient(circle at 30% 50%, white 0%, white 60%, transparent 61%);
-  box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
-  border: none;
+  box-shadow: none;                    /* remove sombra para focar na borda */
+  border: 2px solid black;             /* borda preta visível */
+  background-color: white;             /* fundo sólido branco */
+  opacity: 1;                          /* sem transparência */
   cursor: pointer;
   z-index: 1900;
-  opacity: 1;
   pointer-events: auto;
   transition: opacity 0.3s ease;
 }
