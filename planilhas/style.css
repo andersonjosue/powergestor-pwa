@@ -188,8 +188,8 @@ iframe {
   border-radius: 50% 0 0 50%;
   background: radial-gradient(circle at 30% 50%, white 0%, white 60%, transparent 61%);
   box-shadow: none;                    /* remove sombra para focar na borda */
-  border: 2px solid rgb(255, 0, 0);             /* borda preta visível */
-  background-color: rgb(24, 0, 112);             /* fundo sólido branco */
+  border: 2px solid black;             /* borda preta visível */
+  background-color: white;             /* fundo sólido branco */
   opacity: 1;                          /* sem transparência */
   cursor: pointer;
   z-index: 1900;
