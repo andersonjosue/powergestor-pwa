@@ -186,7 +186,7 @@ iframe {
   width: 8px;
   height: 30px;
   border-radius: 50% 0 0 50%;
-  background-color: blue;           /* fundo azul */
+  background-color: #007bff;           /* fundo azul */
   border: 2px solid red;            /* borda vermelha */
   box-shadow: none;
   opacity: 1;
