@@ -1,11 +1,12 @@
 /* === Reset e base === */
-body {
-  height: 100vh;
-  overflow: hidden;
+html, body {
+  height: 100%;
   margin: 0;
   padding: 0;
+  overflow: hidden; /* evita barras de rolagem */
   font-family: 'Arial', sans-serif;
   background-color: #f5f5f5;
+  box-sizing: border-box;
 }
 
 /* === Tabs e conteúdos === */
@@ -19,6 +20,7 @@ body {
   color: #333;
   font-weight: bold;
   height: 36px;
+  box-sizing: border-box;
 }
 
 .tab-header {
@@ -45,6 +47,7 @@ body {
   position: relative;
   border-right: 1px solid rgba(0,0,0,0.1);
   transition: all 0.2s ease;
+  box-sizing: border-box;
 }
 
 .tab-btn:last-child {
@@ -90,6 +93,7 @@ body {
   padding: 0;
   background-color: white;
   overflow: hidden;
+  box-sizing: border-box;
 }
 
 .tab-content.active {
@@ -103,6 +107,7 @@ iframe {
   margin: 0;
   padding: 0;
   display: block;
+  box-sizing: border-box;
 }
 
 /* Loader animado */
@@ -118,7 +123,8 @@ iframe {
   width: 40px;
   height: 40px;
   animation: spin 1s linear infinite;
-  z-index: 1000;
+  z-index: 1500;
+  box-sizing: border-box;
 }
 
 @keyframes spin {
@@ -152,12 +158,16 @@ iframe {
   color: white; /* Ícone visível */
   font-size: 20px;
   border: none;
-  z-index: 1000;
+  z-index: 2000;
   cursor: pointer;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
 }
 
 .menu-button.visible {
@@ -177,7 +187,7 @@ iframe {
   box-shadow: 0 0 6px rgba(0, 0, 0, 0.3);
   border: none;
   cursor: pointer;
-  z-index: 1000;
+  z-index: 1900;
   opacity: 1;
   pointer-events: auto;
   transition: opacity 0.3s ease;
@@ -195,8 +205,9 @@ iframe {
   right: 0;
   width: 40px;
   height: 40px;
-  z-index: 999;
-  /* background: rgba(255,0,0,0.1);  Remova depois se quiser */
+  z-index: 1950;
+  background: transparent; /* invisível */
+  pointer-events: auto;
 }
 
 /* === MENU DROPDOWN === */
@@ -210,7 +221,7 @@ iframe {
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
   display: none;
   flex-direction: column;
-  z-index: 999;
+  z-index: 2100;
   min-width: 220px;
   overflow: hidden;
 }
