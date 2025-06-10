@@ -17,7 +17,10 @@
   <div id="hoverArea"></div>
 
   <!-- Botão flutuante -->
-  <button class="menu-button" onclick="toggleMenu()">☰</button>
+  <button class="menu-button" onclick="toggleMenu()">
+    ☰
+  <span class="moon-hint"></span>
+  </button>
 
    <!-- Menu suspenso -->
   <div class="menu-dropdown" id="dropdownMenu">
@@ -58,15 +61,19 @@
 
     function showButton() {
       menuButton.classList.add('visible');
+      menuButton.classList.remove('moon-hint-visible');
     }
 
     function hideButton() {
+      const isMenuOpen = menu.style.display === 'flex';
+
       if (
-        menu.style.display === 'none' &&
         !hoverArea.matches(':hover') &&
-        !menuButton.matches(':hover')
+        !menuButton.matches(':hover') &&
+        !isMenuOpen
       ) {
         menuButton.classList.remove('visible');
+        menuButton.classList.add('moon-hint-visible');
       }
     }
 
@@ -83,12 +90,13 @@
     function toggleMenu() {
       if (menu.style.display === 'flex') {
         menu.style.display = 'none';
-        hideButton();
+        hideButton(); // mostrará a meia-lua se necessário
       } else {
         menu.style.display = 'flex';
-        showButton();
+        showButton(); // esconde a meia-lua e mostra o botão
       }
     }
+
 
     function abrirAba(id) {
       document.querySelectorAll('.tab-content').forEach((el) =>

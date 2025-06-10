@@ -226,3 +226,22 @@ iframe {
 .menu-dropdown a:last-child {
   border-bottom: none;
 }
+
+/* Meia-lua decorativa */
+.menu-button .moon-hint {
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  width: 14px;
+  height: 14px;
+  background: radial-gradient(circle at 40% 50%, white 0%, white 50%, transparent 50.5%);
+  border-radius: 50%;
+  box-shadow: 0 0 4px rgba(0,0,0,0.2);
+  display: none;
+  pointer-events: none;
+}
+
+/* Quando o botão não está visível mas a meia-lua precisa aparecer */
+.menu-button.moon-hint-visible .moon-hint {
+  display: block;
+}
