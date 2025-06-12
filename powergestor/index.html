@@ -61,9 +61,12 @@
 
         if (iframe) {
           loader.style.display = 'block';
-          
-          // Recarrega o conteúdo do iframe sem destruí-lo
-          iframe.contentWindow.location.reload();
+          const src = iframe.src;
+          iframe.src = "";
+
+          setTimeout(() => {
+            iframe.src = src;
+          }, 100);
         }
       });
     });
